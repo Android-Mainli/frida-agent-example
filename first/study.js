@@ -38,7 +38,7 @@ function setText() {
         Java.choose("com.baidu.duer.sound.detection.databinding.ActivityMainBinding", {
             onMatch: function (instance) {
                 // console.log(instance.moniterText.value.getText());
-                Java.scheduleOnMainThread(function (){
+                Java.scheduleOnMainThread(function () {
                     let StringClass = Java.use("java.lang.String");
                     // console.log(instance.moniterText.value.$className);
                     instance.moniterText.value.setText(StringClass.$new("你被hook了,我已经修改了你"))
