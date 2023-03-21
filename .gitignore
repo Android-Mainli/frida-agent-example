@@ -1,3 +1,5 @@
 /_agent.js
 /node_modules
 .idea/
+venv
+.DS_Store

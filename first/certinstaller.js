@@ -34,4 +34,8 @@ function certInstaller() {
     })
 }
 
-setImmediate(certInstaller)
+//setImmediate(certInstaller)
+rpc.exports={
+//key 不可有大写 python那边调用会全部转化为小写
+    'certinstaller':certInstaller,
+};
