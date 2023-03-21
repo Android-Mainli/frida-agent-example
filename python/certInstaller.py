@@ -7,6 +7,7 @@ def on_message(message, data):
     else:
         print(message)
 
+
 try:
     device = frida.get_usb_device()
     process = device.attach('com.android.certinstaller')

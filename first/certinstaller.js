@@ -6,23 +6,23 @@
  * 如果这个证书用于应用和VPN则返回true，因此只要hook它让其永远返回false就绕过了CA证书安装的限制，
  * Returns true if this credential contains _only_ CA certificates to be used as trust anchors
  * for VPN and apps.
- public boolean hasOnlyVpnAndAppsTrustAnchors() {
-    if (!hasCaCerts()) {
-        return false;
-    }
-    if (mUid != UID_SELF) {
-        // VPN and Apps trust anchors can only be installed under UID_SELF
-        return false;
-    }
+    public boolean hasOnlyVpnAndAppsTrustAnchors() {
+        if (!hasCaCerts()) {
+            return false;
+        }
+        if (mUid != UID_SELF) {
+            // VPN and Apps trust anchors can only be installed under UID_SELF
+            return false;
+        }
 
-    if (mUserKey != null) {
-        // We are installing a key pair for client authentication, its CA
-        // should have nothing to do with VPN and apps trust anchors.
-        return false;
-    } else {
-        return true;
+        if (mUserKey != null) {
+            // We are installing a key pair for client authentication, its CA
+            // should have nothing to do with VPN and apps trust anchors.
+            return false;
+        } else {
+            return true;
+        }
     }
-}
  */
 function certInstaller() {
     Java.perform(function () {
