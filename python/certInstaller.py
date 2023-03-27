@@ -12,7 +12,7 @@ try:
     device = frida.get_usb_device()
     process = device.attach('com.android.certinstaller')
     script = process.create_script('''
-        function certInstaller() {
+        function certinstaller() {
             Java.perform(function () {
                 let use = Java.use("com.android.certinstaller.CredentialHelper");
                 use.hasOnlyVpnAndAppsTrustAnchors.implementation = function () {
@@ -23,14 +23,14 @@ try:
         }
         rpc.exports={
             //key 不可有大写 python那边调用会全部转化为小写
-            'certinstaller':certInstaller,
+            'certinstaller':certinstaller,
         };
     ''')
     script.on('message', on_message)
     script.load()
 
     print("已经hook完毕,可以愉快的安装证书了")
-    certinstaller = script.exports_sync.certInstaller()
+    certinstaller = script.exports_sync.certinstaller()
     input("\n按回车退出hook\n")
 except frida.InvalidArgumentError as e:
     print("请插入手机后再试", e)
