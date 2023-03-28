@@ -1,3 +1,9 @@
 [submodule "r0tracer"]
 	path = r0tracer
 	url = git@github.com:r0ysue/r0tracer.git
+[submodule "r0capture"]
+	path = r0capture
+	url = git@github.com:r0ysue/r0capture.git
+[submodule "frida-server-install"]
+	path = frida-server-install
+	url = git@github.com:Android-Mainli/frida-server-install.git
